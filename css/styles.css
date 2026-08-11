@@ -1247,13 +1247,9 @@ section[id] {
   object-fit: cover;
 }
 
-.video-break__caption {
-  font-family: var(--font-heading);
-  font-size: var(--text-xl);
-  font-weight: 700;
-  color: var(--color-white);
+.video-break__heading {
   text-align: center;
-  margin: 0;
+  margin-bottom: var(--space-2xl);
 }
 
 @media (min-width: 768px) {
