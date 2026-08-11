@@ -1787,6 +1787,20 @@ section[id] {
   line-height: 1.7;
 }
 
+.faq__answer a {
+  color: var(--color-primary);
+  font-weight: 600;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  text-decoration-thickness: 1.5px;
+  transition: color var(--transition-base);
+}
+
+.faq__answer a:hover,
+.faq__answer a:focus-visible {
+  color: var(--color-gold);
+}
+
 /* ============================================
    17. FOOTER-CTA
    ============================================ */
