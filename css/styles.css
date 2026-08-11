@@ -1365,6 +1365,8 @@ section[id] {
    ============================================ */
 .day__timeline {
   position: relative;
+  max-width: var(--container-narrow);
+  margin: 0 auto;
 }
 
 .day__block {
