@@ -1223,62 +1223,28 @@ section[id] {
 }
 
 .video-break__wrapper {
-  max-width: var(--container-narrow);
+  max-width: 380px;
   margin: 0 auto;
-}
-
-.video-break__poster {
-  position: relative;
-  border-radius: var(--radius-lg);
-  overflow: hidden;
-  cursor: pointer;
-  box-shadow: 0 8px 40px rgba(0, 0, 0, 0.3);
-}
-
-.video-break__poster img {
-  width: 100%;
-  height: 320px;
-  object-fit: cover;
-  display: block;
-  transition: transform var(--transition-slow);
-}
-
-.video-break__poster:hover img {
-  transform: scale(1.03);
-}
-
-.video-break__overlay {
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(180deg, rgba(27, 42, 92, 0.3) 0%, rgba(27, 42, 92, 0.75) 100%);
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  gap: var(--space-md);
+  gap: var(--space-lg);
 }
 
-.video-break__play {
-  width: 80px;
-  height: 80px;
-  border-radius: 50%;
-  background: rgba(232, 184, 41, 0.9);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: transform var(--transition-base), background var(--transition-base);
-  box-shadow: 0 4px 20px rgba(232, 184, 41, 0.4);
+.video-break__player {
+  width: 100%;
+  aspect-ratio: 9 / 16;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  background: #000;
+  box-shadow: 0 8px 40px rgba(0, 0, 0, 0.35);
 }
 
-.video-break__play svg {
-  margin-left: 4px;
-  width: 32px;
-  height: 32px;
-}
-
-.video-break__poster:hover .video-break__play {
-  transform: scale(1.1);
-  background: var(--color-gold);
+.video-break__player video {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
 }
 
 .video-break__caption {
@@ -1287,27 +1253,12 @@ section[id] {
   font-weight: 700;
   color: var(--color-white);
   text-align: center;
-}
-
-.video-break__hint {
-  font-size: var(--text-sm);
-  color: rgba(255, 255, 255, 0.6);
-  font-style: italic;
+  margin: 0;
 }
 
 @media (min-width: 768px) {
-  .video-break__poster img {
-    height: 450px;
-  }
-
-  .video-break__play {
-    width: 96px;
-    height: 96px;
-  }
-
-  .video-break__play svg {
-    width: 40px;
-    height: 40px;
+  .video-break__wrapper {
+    max-width: 420px;
   }
 }
 
