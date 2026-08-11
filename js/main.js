@@ -536,91 +536,6 @@
   }
 
   // ========================================
-  // SALARY CALCULATOR (TV-L)
-  // ========================================
-  function initSalaryCalc() {
-    var groupSlider = document.getElementById('calc-group');
-    var stepSlider = document.getElementById('calc-step');
-    if (!groupSlider || !stepSlider) return;
-
-    var groupLabel = document.getElementById('calc-group-label');
-    var stepLabel = document.getElementById('calc-step-label');
-    var amountEl = document.getElementById('calc-amount');
-    var groupTicks = document.getElementById('calc-group-ticks');
-    var stepTicks = document.getElementById('calc-step-ticks');
-
-    var groups = ['E 9a', 'E 9b', 'E 10', 'E 11', 'E 12', 'E 13'];
-    var steps = ['Stufe 1', 'Stufe 2', 'Stufe 3', 'Stufe 4', 'Stufe 5', 'Stufe 6'];
-
-    // TV-L 2025 Bruttogehälter (gültig 01.02.2025 – 31.03.2026)
-    var salaries = [
-      [3520.10, 3765.38, 3818.66, 3925.17, 4366.72, 4490.04], // E9a
-      [3520.10, 3765.38, 3925.17, 4366.72, 4742.32, 4878.28], // E9b
-      [3928.42, 4182.83, 4474.13, 4771.29, 5336.70, 5490.47], // E10
-      [4064.54, 4323.79, 4619.10, 5068.49, 5720.84, 5886.14], // E11
-      [4193.48, 4474.13, 5068.49, 5590.37, 6264.45, 6446.05], // E12
-      [4629.74, 4967.01, 5220.71, 5713.58, 6394.91, 6580.44]  // E13
-    ];
-
-    function buildTicks(container, labels) {
-      container.innerHTML = '';
-      for (var i = 0; i < labels.length; i++) {
-        var span = document.createElement('span');
-        span.textContent = labels[i];
-        container.appendChild(span);
-      }
-    }
-
-    function updateTicks(container, activeIndex) {
-      var spans = container.querySelectorAll('span');
-      for (var i = 0; i < spans.length; i++) {
-        if (i === activeIndex) {
-          spans[i].classList.add('is-active');
-        } else {
-          spans[i].classList.remove('is-active');
-        }
-      }
-    }
-
-    function formatCurrency(value) {
-      return '\u20AC\u00A0' + value.toLocaleString('de-DE', {
-        minimumFractionDigits: 2,
-        maximumFractionDigits: 2
-      });
-    }
-
-    function updateCalc() {
-      var gi = parseInt(groupSlider.value, 10);
-      var si = parseInt(stepSlider.value, 10);
-      var salary = salaries[gi][si];
-
-      groupLabel.textContent = groups[gi];
-      stepLabel.textContent = steps[si];
-      amountEl.textContent = formatCurrency(salary);
-
-      updateTicks(groupTicks, gi);
-      updateTicks(stepTicks, si);
-
-      // Pulse animation
-      amountEl.classList.add('is-updated');
-      setTimeout(function() {
-        amountEl.classList.remove('is-updated');
-      }, 200);
-    }
-
-    // Build tick labels
-    buildTicks(groupTicks, groups);
-    buildTicks(stepTicks, steps);
-
-    // Event listeners
-    groupSlider.addEventListener('input', updateCalc);
-    stepSlider.addEventListener('input', updateCalc);
-
-    // Initial state
-    updateCalc();
-  }
-
-  // ========================================
   // INIT
   // ========================================
   function init() {
@@ -635,7 +550,6 @@
     initSmoothScroll();
     initCultureSlider();
     initTypingAnimation();
-    initSalaryCalc();
   }
 
   if (document.readyState === 'loading') {
